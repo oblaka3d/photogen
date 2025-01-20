@@ -10,6 +10,7 @@ export default class WoodTemplate extends Template<WoodProduct, WoodHtmlProps> {
   override async parseExcel(): Promise<WoodProduct[]> {
     const sheet = this.workbook.getWorksheet(1)
     const result: WoodProduct[] = []
+    // @ts-ignore
     sheet.eachRow((row, rowNumber) => {
       if (rowNumber === 1) return
       const values = row.values as Record<string, any>
